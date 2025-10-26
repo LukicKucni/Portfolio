@@ -195,7 +195,7 @@ nav {
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
     z-index: 100;
-    padding: 20px 0;
+    padding: 12px 0;
     transform: translateY(0);
     transition: transform 0.3s ease;
 }
@@ -306,7 +306,7 @@ nav a:not(.nav-cta):hover {
 main {
     position: relative;
     z-index: 10;
-    padding-top: 120px;
+    padding-top: 80px;
     min-height: 100vh;
 }
 
@@ -579,6 +579,44 @@ p {
 .project-header {
     text-align: center;
     margin-bottom: 60px;
+}
+
+.project-status {
+    margin-top: 20px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.in-progress {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.status-badge.completed {
+    background: linear-gradient(135deg, var(--accent), #00d4aa);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+    }
 }
 
 .project-section {
