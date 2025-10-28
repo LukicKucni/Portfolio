@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lazar Lukić - Junior Full Stack Developer from Belgrade, Serbia. Passionate about creating clean, functional, and user-friendly web experiences.">
+    <meta name="description" content="Lazar Lukić | Junior Full Stack Developer from Belgrade, Serbia. Passionate about creating clean, functional, and user-friendly web experiences.">
     <meta name="keywords" content="web developer, full stack developer, portfolio, JavaScript, React, Node.js, frontend, backend">
     <meta name="author" content="Lazar Lukić">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lukicc.dev/">
+    <meta property="og:url" content="https://llukic.dev/">
     <meta property="og:title" content="Lazar Lukić - Web Developer">
     <meta property="og:description" content="Junior Full Stack Developer from Belgrade, Serbia">
-    <meta property="og:image" content="https://lukicc.dev/images/profilna.png">
+    <meta property="og:image" content="https://llukic.dev/images/profilna.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://lukicc.dev/">
+    <meta property="twitter:url" content="https://llukic.dev/">
     <meta property="twitter:title" content="Lazar Lukić - Web Developer">
     <meta property="twitter:description" content="Junior Full Stack Developer from Belgrade, Serbia">
-    <meta property="twitter:image" content="https://lukicc.dev/images/profilna.png">
+    <meta property="twitter:image" content="https://llukic.dev/images/profilna.png">
     
-    <title>Lazar Lukić - Web Developer | Portfolio</title>
+    <title>Lazar Lukić | Full Stack Developer | Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2300FF88' rx='20'/><text x='50' y='75' font-size='70' font-weight='800' font-family='Arial, sans-serif' text-anchor='middle' fill='%23000'>L</text></svg>">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,9 +32,14 @@
         <div class="nav-container">
             <a href="index.html" class="nav-brand">
                 <div class="logo"></div>
-                <span class="nav-brand-text">lukicc.dev</span>
+                <span class="nav-brand-text">llukic.dev</span>
             </a>
-            <div class="nav-links">
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
                 <a href="about.html">About</a>
                 <a href="projects.html">Projects</a>
                 <a href="contact.html" class="nav-cta">Let's Connect</a>
@@ -115,35 +121,6 @@
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section>
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: 50px;">What People Say</h2>
-                
-                <!-- Display existing testimonials -->
-                <div id="testimonialsContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto 50px auto;">
-                    <!-- Testimonials will be displayed here -->
-                </div>
-                
-                <!-- Add Testimonial Form -->
-                <div style="max-width: 600px; margin: 0 auto;">
-                    <h3 style="text-align: center; color: var(--accent); margin-bottom: 30px;">Leave a Comment</h3>
-                    <form id="testimonialForm" style="background: var(--card-bg); padding: 40px; border-radius: 12px; border: 1px solid var(--border);">
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 8px; color: var(--primary); font-weight: 500;">Your Name</label>
-                            <input type="text" id="testimonialName" required style="width: 100%; padding: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); border-radius: 8px; color: var(--primary); font-size: 1rem;">
-                        </div>
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 8px; color: var(--primary); font-weight: 500;">Your Comment</label>
-                            <textarea id="testimonialComment" required rows="4" style="width: 100%; padding: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); border-radius: 8px; color: var(--primary); font-size: 1rem; resize: vertical;"></textarea>
-                </div>
-                        <button type="submit" style="width: 100%; padding: 15px; background: var(--accent); color: var(--bg); border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: opacity 0.3s ease;">
-                            Submit Comment
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
     </main>
 
     <div id="imageModal" class="image-modal">
@@ -156,7 +133,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo"></div>
-                    <span class="footer-brand-text">lukicc.dev</span>
+                    <span class="footer-brand-text">llukic.dev</span>
                 </div>
                 <div class="footer-links">
                     <a href="about.html">About</a>
