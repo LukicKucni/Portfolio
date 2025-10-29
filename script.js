@@ -155,10 +155,10 @@ if (form) {
         } catch (error) {
             console.error('PHP Backend Error:', error);
             
-            // Automatically use mailto fallback for local testing
+            // Fallback to mailto if PHP fails (only as last resort)
             const mailtoLink = `mailto:lukiclazar.dev@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
             
-            alert('Note: Using email client for local testing. On production server, this will be sent automatically.');
+            alert('Unable to send message through the server. Opening your email client instead.');
             window.location.href = mailtoLink;
             form.reset();
         } finally {

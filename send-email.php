@@ -1,11 +1,6 @@
 <?php
 header('Content-Type: application/json');
 
-// Enable CORS for local testing (remove in production)
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers: Content-Type');
-
 // Only allow POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
