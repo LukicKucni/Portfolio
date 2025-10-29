@@ -166,11 +166,6 @@ p {
 .about-text > p:nth-child(4) { animation-delay: 0.4s; }
 .about-text > p:nth-child(5) { animation-delay: 0.5s; }
 
-/* Profile image */
-.about-image {
-    animation: zoomIn 0.6s ease-out both;
-    will-change: transform, opacity;
-}
 
 /* ===========================================
    KEYFRAMES - All GPU Optimized
@@ -333,19 +328,19 @@ p {
 }
 
 nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
-    z-index: 100;
+    z-index: 9999 !important;
     padding: 12px 0;
     transform: translateZ(0); /* GPU acceleration */
-    /* Prevent nav from affecting scroll */
     pointer-events: none;
+    width: 100% !important;
 }
 
 nav > * {
@@ -587,19 +582,6 @@ p {
     gap: 40px;
     margin-bottom: 60px;
     contain: layout style;
-}
-
-@media (min-width: 768px) {
-    .about-content {
-        display: grid;
-        grid-template-columns: 1fr 400px;
-        gap: 60px;
-        align-items: start;
-    }
-    
-    .about-text {
-        padding-right: 0;
-    }
 }
 
 .about-text {
@@ -1593,6 +1575,7 @@ footer .logo::before {
     to { transform: scale(1); opacity: 1; }
 }
 
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -1689,4 +1672,5 @@ footer .logo::before {
     .contact-form {
         padding: 30px 20px;
     }
+    
 }

@@ -112,6 +112,7 @@ document.addEventListener('mousemove', function(e) {
     }
 }, { passive: true });
 
+
 // ===========================================
 // CONTACT FORM SUBMISSION
 // ===========================================
@@ -119,52 +120,18 @@ document.addEventListener('mousemove', function(e) {
 const form = document.querySelector('form');
 
 if (form) {
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const formData = new FormData(form);
-        const submitBtn = form.querySelector('.submit-btn');
-        const originalBtnText = submitBtn.textContent;
+        const name = form.querySelector('[name="name"]').value;
+        const email = form.querySelector('[name="email"]').value;
+        const subject = form.querySelector('[name="subject"]').value;
+        const message = form.querySelector('[name="message"]').value;
         
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const subject = formData.get('subject');
-        const message = formData.get('message');
+        const mailtoLink = `mailto:lukiclazar.dev@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
         
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-        
-        try {
-            const response = await fetch('send-email.php', {
-                method: 'POST',
-                body: formData
-            });
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            
-            const result = await response.json();
-            
-            if (result.success) {
-                alert(result.message);
-                form.reset();
-            } else {
-                alert(result.message || 'Failed to send message. Please try again.');
-            }
-        } catch (error) {
-            console.error('PHP Backend Error:', error);
-            
-            // Fallback to mailto if PHP fails (only as last resort)
-            const mailtoLink = `mailto:lukiclazar.dev@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-            
-            alert('Unable to send message through the server. Opening your email client instead.');
-            window.location.href = mailtoLink;
-            form.reset();
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalBtnText;
-        }
+        window.location.href = mailtoLink;
+        form.reset();
     });
 }
 
