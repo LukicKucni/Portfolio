@@ -10,11 +10,23 @@ function openImageModal(src) {
     modalImg.src = src;
     modal.classList.add('show');
     document.body.style.overflow = 'hidden';
+    
+    // Hide navbar when modal is open
+    const nav = document.querySelector('nav');
+    if (nav) {
+        nav.classList.add('modal-open');
+    }
 }
 
 function closeImageModal() {
     modal.classList.remove('show');
     document.body.style.overflow = 'auto';
+    
+    // Show navbar when modal is closed
+    const nav = document.querySelector('nav');
+    if (nav) {
+        nav.classList.remove('modal-open');
+    }
 }
 
 // Add click listeners to images
