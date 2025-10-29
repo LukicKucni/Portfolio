@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/(about|projects|contact)",
+      "destination": "/$1.html",
+      "check": true
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
+

@@ -16,19 +16,23 @@ Options -Indexes
     RewriteEngine On
     RewriteBase /
     
-    # Redirect .html to clean URL (301 permanent) - only if requesting .html
+    # First, redirect .html requests to clean URLs (external redirects)
+    RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+    RewriteRule ^ / [R=301,L]
+    
     RewriteCond %{THE_REQUEST} \s/+(.+)\.html[\s?] [NC]
     RewriteRule ^ /%1 [R=301,L]
     
-    # Add .html extension internally if file exists
+    # Now handle internal rewrites - if file doesn't exist, try adding .html
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME}.html -f
     RewriteRule ^(.+)$ $1.html [L]
     
-    # Handle root - serve index.html
-    RewriteCond %{REQUEST_URI} ^/$
+    # Handle root directory
     RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} ^/$
     RewriteRule ^$ index.html [L]
 </IfModule>
 
