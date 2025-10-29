@@ -1,12 +1,11 @@
 {
   "rewrites": [
-    {
-      "source": "/(about|projects|contact)",
-      "destination": "/$1.html",
-      "check": true
-    }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/:path((?!.*\\.).*)", "destination": "/:path.html" }
   ],
-  "cleanUrls": true,
-  "trailingSlash": false
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/contacts.html", "destination": "/contacts", "permanent": true },
+    { "source": "/about.html", "destination": "/about", "permanent": true }
+  ]
 }
-
